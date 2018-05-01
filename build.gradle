@@ -1,0 +1,52 @@
+buildscript {
+    def vers = [
+            kotlin : '1.2.40'
+    ]
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${vers.kotlin}"
+    }
+}
+
+allprojects {
+    apply plugin: "idea"
+    apply plugin: "eclipse"
+
+    version = '1.0'
+    ext.appName = 'sodaG'
+
+    repositories {
+        google()
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+}
+
+apply from: rootProject.file('dependencies.gradle')
+
+project(":desktop") {
+    apply plugin: "kotlin"
+
+    dependencies {
+        implementation deps.project.core
+        implementation deps.kotlin.stdlib
+        implementation deps.gdx.backend.lwjgl
+        implementation deps.gdx.natives.desktop
+    }
+}
+
+project(":core") {
+    apply plugin: "kotlin"
+
+    dependencies {
+        implementation deps.kotlin.stdlib
+        implementation deps.gdx.gdx
+    }
+}

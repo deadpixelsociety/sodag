@@ -1,0 +1,28 @@
+def vers = [
+    kotlin: '1.2.40',
+    gdx   : '1.9.8'
+]
+
+ext.deps = [
+    kotlin : [
+        stdlib: "org.jetbrains.kotlin:kotlin-stdlib:${vers.kotlin}"
+    ],
+    project: [
+        core: project(':core')
+    ],
+    gdx    : [
+        gdx    : "com.badlogicgames.gdx:gdx:${vers.gdx}",
+        backend: [
+            android: "com.badlogicgames.gdx:gdx-backend-android:${vers.gdx}",
+            lwjgl  : "com.badlogicgames.gdx:gdx-backend-lwjgl:${vers.gdx}",
+        ],
+        natives: [
+            desktop   : "com.badlogicgames.gdx:gdx-platform:${vers.gdx}:natives-desktop",
+            armeabi   : "com.badlogicgames.gdx:gdx-platform:${vers.gdx}:natives-armeabi",
+            armeabi_7a: "com.badlogicgames.gdx:gdx-platform:${vers.gdx}:natives-armeabi-v7a",
+            arm64_8a  : "com.badlogicgames.gdx:gdx-platform:${vers.gdx}:natives-arm64-v8a",
+            x86       : "com.badlogicgames.gdx:gdx-platform:${vers.gdx}:natives-x86",
+            x86_64    : "com.badlogicgames.gdx:gdx-platform:${vers.gdx}:natives-x86_64"
+        ]
+    ]
+]
