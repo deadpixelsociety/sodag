@@ -1,6 +1,6 @@
 buildscript {
     def vers = [
-            kotlin : '1.2.40'
+            kotlin : '1.2.41'
     ]
 
     repositories {
